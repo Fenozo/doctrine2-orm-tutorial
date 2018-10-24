@@ -35,6 +35,13 @@ class User
     */
     protected $role;
 
+    /**
+    *  @ORM\OneToOne(targetEntity=Address::class, cascade={"persist", "remove"})
+    *  @ORM\JoinColumn(name="address_id", nullable=true)
+    */
+    protected $address;
+
+
     public function getId()
     {
         return $this->id;
@@ -73,5 +80,16 @@ class User
     public function setRole($role)
     {
         $this->role = $role;
+    }
+
+    public function __toString()
+    {
+        $format = "User (id: %s, firstname: %s, lastname: %s, role: %s)\n";
+        return sprintf($format, $this->id, $this->firstname, $this->lastname, $this->role,$this->address);
+    }
+
+    public function setAddress($address) {
+        $this->address = $address;
+        return $this;
     }
 }
