@@ -4,8 +4,9 @@
 namespace Tuto\Entity;
 
 
-
+use Tuto\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -36,10 +37,19 @@ class User
     protected $role;
 
     /**
-    *  @ORM\OneToOne(targetEntity=Address::class, cascade={"persist", "remove"})
-    *  @ORM\JoinColumn(name="address_id", nullable=true)
+    *  @ORM\OneToOne(targetEntity=Address::class, cascade={"persist", "remove"}, fetch="EAGER")
+    *  
     */
     protected $address;
+
+    /**
+    * @ORM\OneToMany(targetEntity=Participation::class, mappedBy="user")
+    */
+    protected $participations;
+
+    public function __construct() {
+        $this->participations = new ArrayCollection();
+    }
 
 
     public function getId()
@@ -88,8 +98,16 @@ class User
         return sprintf($format, $this->id, $this->firstname, $this->lastname, $this->role,$this->address);
     }
 
-    public function setAddress($address) {
+    public function setAddress($address = null) {
         $this->address = $address;
         return $this;
+    }
+
+    /**
+     * Get the value of address
+     */ 
+    public function getAddress()
+    {
+        return $this->address;
     }
 }
