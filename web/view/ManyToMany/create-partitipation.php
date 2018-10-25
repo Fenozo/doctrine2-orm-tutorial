@@ -3,9 +3,9 @@
 
 $entityManager = require_once join(DIRECTORY_SEPARATOR, [__DIR__,"..","..","..","config", 'bootstrap.php']);
 
-use Tuto\Entity\Participation;
-use Tuto\Entity\Poll;
-use Tuto\Entity\User;
+use App\Entity\Participation;
+use App\Entity\Poll;
+use App\Entity\User;
 
 $participation = new Participation();
 

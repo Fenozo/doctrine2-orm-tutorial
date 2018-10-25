@@ -1,7 +1,7 @@
 <?php
 # src/Entity/Address.php
 
-namespace Tuto\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -32,7 +32,6 @@ class Address
     * @ORM\Column(type="string", name="country")
     */
     protected $country;
-
 
 
     public function __toString()

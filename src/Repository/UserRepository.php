@@ -1,10 +1,10 @@
 <?php
 # src/Repository/UserRepository.php
 
-namespace Tuto\Repository;
+namespace App\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Tuto\Entity\User;
+use App\Entity\User;
 
 class UserRepository extends EntityRepository
 {

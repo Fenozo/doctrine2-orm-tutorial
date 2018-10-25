@@ -3,7 +3,7 @@
 
 $entityManager = require_once join(DIRECTORY_SEPARATOR, [__DIR__,"..","..","..","config", 'bootstrap.php']);
 
-use Tuto\Entity\Poll;
+use App\Entity\Poll;
 
 $pollRepo = $entityManager->getRepository(Poll::class);
 

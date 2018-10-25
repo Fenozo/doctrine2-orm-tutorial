@@ -3,8 +3,8 @@
 
 $entityManager  = require_once join(DIRECTORY_SEPARATOR,[__DIR__,'..','..','..','config','bootstrap.php']);
 
-use Tuto\Entity\User;
-use Tuto\Entity\Address;
+use App\Entity\User;
+use App\Entity\Address;
 
 $userRepo = $entityManager->getRepository(User::class);
 

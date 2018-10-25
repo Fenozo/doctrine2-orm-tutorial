@@ -1,7 +1,7 @@
 <?php
 # src/Entity/Participation.php
 
-namespace Tuto\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

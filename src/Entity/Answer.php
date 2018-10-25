@@ -2,7 +2,7 @@
 
 # src/Entity/Answer.php 
 
-namespace Tuto\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

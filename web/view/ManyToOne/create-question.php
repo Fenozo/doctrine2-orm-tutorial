@@ -3,8 +3,8 @@
 
 $entityManager  = require_once join(DIRECTORY_SEPARATOR,[__DIR__,'..','..','..','config','bootstrap.php']);
 
-use Tuto\Entity\Question;
-use Tuto\Entity\Answer;
+use App\Entity\Question;
+use App\Entity\Answer;
 
 $question = new Question();
 

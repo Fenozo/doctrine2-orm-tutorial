@@ -1,10 +1,10 @@
 <?php
 # src/Entity/User.php
 
-namespace Tuto\Entity;
+namespace App\Entity;
 
 
-use Tuto\Repository\UserRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -12,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Entity
  * @ORM\Table(name="users")
  * 
- * @ORM\Entity(repositoryClass="Tuto\Repository\UserRepository") 
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository") 
  *
  */
 class User

@@ -7,7 +7,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Tuto\\": "src/"
+            "App\\": "src/",
+            "Core\\" : "core/"
         }
     }
 }

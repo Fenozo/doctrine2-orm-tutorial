@@ -1,7 +1,7 @@
 <?php
 # src/Entity/Poll.php
 
-namespace Tuto\Entity;
+namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
