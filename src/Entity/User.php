@@ -11,6 +11,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
+ * 
+ * @ORM\Entity(repositoryClass="Tuto\Repository\UserRepository") 
+ *
  */
 class User
 {

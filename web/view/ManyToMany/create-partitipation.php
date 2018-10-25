@@ -12,7 +12,7 @@ $participation = new Participation();
 $participation->setDate(new \Datetime("2017-03-03T09:00:00Z"));
 
 $pollRepo = $entityManager->getRepository(Poll::class);
-$poll = $pollRepo->find(1);
+$poll = $pollRepo->find(4);
 
 $userRepo = $entityManager->getRepository(User::class);
 $user = $userRepo->find(1);

@@ -10,10 +10,10 @@ use Tuto\Entity\User;
 
 $userRepo = $entityManager->getRepository(User::class);
 
-//$user = $userRepo->find(1);
-//echo get_class($user->getAddress());
-
-
+    //$user = $userRepo->find(1);
+    //echo get_class($user->getAddress());
+    $userRepo->test();
+exit;
 $user = $userRepo->findAll();
 echo "<pre>";
 print_r($user);
