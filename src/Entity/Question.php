@@ -28,6 +28,11 @@ use Doctrine\ORM\Mapping as ORM;
     */
     protected $answers;
 
+    /**
+    * @ORM\ManyToOne(targetEntity=Poll::class, inversedBy="questions")
+    */
+    protected $poll;
+
     public function __construct() {
         $this->answers = new ArrayCollection();
     }
@@ -78,5 +83,17 @@ use Doctrine\ORM\Mapping as ORM;
     }
 
 
+
+    /**
+     * Set the value of poll
+     *
+     * @return  self
+     */ 
+    public function setPoll($poll)
+    {
+        $this->poll = $poll;
+
+        return $this;
+    }
  }
  

@@ -13,3 +13,8 @@ $ git clone https://github.com/doctrine/doctrine2-orm-tutorial.git  # or: git cl
 $ cd doctrine2-orm-tutorial
 $ composer install
 ```
+
+
+# Le ManyToOne
+
+Dans une relation ManyToOne, le many qualifie l’entité qui doit contenir l’annotation.
