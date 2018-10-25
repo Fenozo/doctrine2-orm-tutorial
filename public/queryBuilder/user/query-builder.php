@@ -19,3 +19,5 @@ $query = $queryBuilder->getQuery();
 
 echo $query->getDQL(), "\n";
 echo $query->getOneOrNullResult();
+
+// https://www.youtube.com/watch?v=w1FviidvxJc
