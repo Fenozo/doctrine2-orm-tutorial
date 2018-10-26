@@ -23,10 +23,8 @@ class UserRepository extends EntityRepository
         return $query->getOneOrNullResult();
     }
 
-
-    public function test() {
+    public function test()
+    {
         print_r('Je suis la classe de dépôt');
     }
-
-   // ...
 }

@@ -1,7 +1,5 @@
 <?php
-
-# src/Entity/Answer.php 
-
+# src/Entity/Answer.php
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -36,7 +34,7 @@ class Answer
     }
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -45,7 +43,7 @@ class Answer
 
     /**
      * Get the value of question
-     */ 
+     */
     public function getQuestion()
     {
         return $this->question;
@@ -55,7 +53,7 @@ class Answer
      * Set the value of question
      *
      * @return  self
-     */ 
+     */
     public function setQuestion($question)
     {
         $this->question = $question;
@@ -63,11 +61,9 @@ class Answer
         return $this;
     }
 
-    
-
     /**
      * Get the value of wording
-     */ 
+     */
     public function getWording()
     {
         return $this->wording;
@@ -77,7 +73,7 @@ class Answer
      * Set the value of wording
      *
      * @return  self
-     */ 
+     */
     public function setWording($wording)
     {
         $this->wording = $wording;

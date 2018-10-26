@@ -6,34 +6,52 @@ $entityManager  = require_once join(DIRECTORY_SEPARATOR,[__DIR__,'..','..','..',
 
 use App\Entity\User;
 
+
+
+
+
 //$user =  $entityManager->find(User::class, 1);
 
 $userRepo = $entityManager->getRepository(User::class);
 
     //$user = $userRepo->find(1);
     //echo get_class($user->getAddress());
-    $userRepo->test();
+    //$userRepo->test();
+
+
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Route;
+
+use App\Controller\DefaultController;
 
 
 
-class CallableClass
-{
-    public function __invoke($x)
-    {
-        return ($x);
-    }
-}
+$routes = new RouteCollection();
+
+$routes->add('route_name', 
+    new Route('/foo', 
+        array(
+            '_controller' => [DefaultController::class, 'index']
+        )));
 
 
-$obj = new CallableClass;
-$obj(5);
-print_r($obj);
-var_dump(is_callable($obj));
+$context = new RequestContext('/');
+
+$matcher = new UrlMatcher($routes, $context);
+
+$parameters = $matcher->match('/foo');
+
+
+
+
+
 
 
 
 exit;
 $user = $userRepo->findAll();
 echo "<pre>";
-print_r($user);
+//print_r($user);
 

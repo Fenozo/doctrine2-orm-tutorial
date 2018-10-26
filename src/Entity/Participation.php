@@ -7,7 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
 * @ORM\Entity
-* @ORM\Table(name="participations",uniqueConstraints={@ORM\UniqueConstraint(name="user_poll_unique", columns={"user_id", "poll_id"})})
+* @ORM\Table(name="participations",uniqueConstraints={
+        @ORM\UniqueConstraint(name="user_poll_unique", columns={"user_id", "poll_id"})
+    })
 */
 class Participation
 {
@@ -41,7 +43,7 @@ class Participation
     
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -49,7 +51,7 @@ class Participation
 
     /**
      * Get the value of date
-     */ 
+     */
     public function getDate()
     {
         return $this->date;
@@ -59,7 +61,7 @@ class Participation
      * Set the value of date
      *
      * @return  self
-     */ 
+     */
     public function setDate($date)
     {
         $this->date = $date;
@@ -69,7 +71,7 @@ class Participation
 
     /**
      * Get the value of user
-     */ 
+     */
     public function getUser()
     {
         return $this->user;
@@ -79,7 +81,7 @@ class Participation
      * Set the value of user
      *
      * @return  self
-     */ 
+     */
     public function setUser($user)
     {
         $this->user = $user;
@@ -89,7 +91,7 @@ class Participation
 
     /**
      * Get the value of poll
-     */ 
+     */
     public function getPoll()
     {
         return $this->poll;
@@ -99,13 +101,11 @@ class Participation
      * Set the value of poll
      *
      * @return  self
-     */ 
+     */
     public function setPoll($poll)
     {
         $this->poll = $poll;
 
         return $this;
     }
-
-    
 }

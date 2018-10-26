@@ -45,10 +45,9 @@ class Poll
         return sprintf($format, $this->id, $this->title, $this->created->format(\Datetime::ISO8601));
     }
 
-    
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -56,13 +55,14 @@ class Poll
 
     /**
      * Get the value of questions
-     */ 
+     */
     public function getQuestions()
     {
         return $this->questions;
     }
+
     /**
-     * 
+     * @param string $question
      */
     public function addQuestion(Question $question)
     {
@@ -71,10 +71,9 @@ class Poll
         $question->setPoll($this);
     }
 
-
     /**
      * Get the value of title
-     */ 
+     */
     public function getTitle()
     {
         return $this->title;
@@ -84,17 +83,16 @@ class Poll
      * Set the value of title
      *
      * @return  self
-     */ 
+     */
     public function setTitle($title)
     {
         $this->title = $title;
-
         return $this;
     }
 
     /**
      * Get the value of created
-     */ 
+     */
     public function getCreated()
     {
         return $this->created;
@@ -102,15 +100,11 @@ class Poll
 
     /**
      * Set the value of created
-     *
      * @return  self
-     */ 
+     */
     public function setCreated($created)
     {
         $this->created = $created;
-
         return $this;
     }
-
-    
 }

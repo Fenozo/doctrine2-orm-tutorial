@@ -1,16 +1,16 @@
 <?php
-# src/Entity/Question.php 
 
 namespace App\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="questions")
- * 
  */
- class Question
- {
+class Question
+{
     /**
      * @ORM\Id
     * @ORM\GeneratedValue
@@ -33,68 +33,62 @@ use Doctrine\ORM\Mapping as ORM;
     */
     protected $poll;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->answers = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        $format = "Question (id: %s, wording: %s) \n";
 
-      public function __toString() {
-          $format = "Question (id: %s, wording: %s) \n";
+        return sprintf($format, $this->id, $this->wording);
+    }
 
-          return sprintf($format, $this->id, $this->wording);
-      }
+    /**
+     * Get the value of id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
-      /**
-       * Get the value of id
-       */ 
-      public function getId()
-      {
-            return $this->id;
-      }
-      /**
-       * Set the value of wording
-       *
-       * @return  self
-       */ 
-      public function setWording($wording)
-      {
-            $this->wording = $wording;
-
-            return $this;
-      }
+    /**
+     * Set the value of wording
+     * @return  self
+     */
+    public function setWording($wording)
+    {
+        $this->wording = $wording;
+        return $this;
+    }
 
     /**
      * Get the value of wording
-     */ 
+     */
     public function getWording()
     {
         return $this->wording;
     }
-    // ...
 
     public function getAnswers()
     {
         return $this->answers;
     }
-      public function addAnswer(Answer $answer)
+    public function addAnswer(Answer $answer)
     {
         $this->answers->add($answer);
         $answer->setQuestion($this);
     }
 
-
-
     /**
      * Set the value of poll
-     *
      * @return  self
-     */ 
+     */
     public function setPoll($poll)
     {
         $this->poll = $poll;
 
         return $this;
     }
-    
- }
- 
+}

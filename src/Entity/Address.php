@@ -33,56 +33,68 @@ class Address
     */
     protected $country;
 
-
     public function __toString()
     {
         $format = "Address (id: %s, street: %s, city: %s, country: %s)";
         return sprintf($format, $this->id, $this->street, $this->city, $this->country);
     }
+
     /**
-     * 
-     */
-    public function getId() {
+     * @return int id
+    */
+    public function getId()
+    {
         return $this->id;
     }
+
     /**
      * set street
      */
-    public function setStreet($street) {
+    public function setStreet($street)
+    {
         $this->street = $street;
         return $this;
     }
+
     /**
      * get street
      */
-    public function getStreet() {
+    public function getStreet()
+    {
         return $this->street;
     }
+
     /**
      * set city
      */
-    public function setCity($city) {
+    public function setCity($city)
+    {
         $this->city = $city;
         return $this;
     }
+
     /**
      * get city
      */
-    public function getCity() {
+    public function getCity()
+    {
         return $this->city;
     }
+
     /**
      * set country
      */
-    public function setCountry($country) {
+    public function setCountry($country)
+    {
         $this->country = $country;
         return $this;
     }
+
     /**
      * get Country
      */
-    public function getCountry() {
+    public function getCountry()
+    {
         return $this->country;
     }
-
 }
