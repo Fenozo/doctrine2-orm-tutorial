@@ -1,9 +1,10 @@
 <?php
+require join(DIRECTORY_SEPARATOR, ['..', 'config', 'bootstrap.php']);
 
 use App\Entity\User;
-use GuzzleHttp\Psr7\ServerRequest;
 
-require join(DIRECTORY_SEPARATOR, ['..', 'config', 'bootstrap.php']);
 $app        = new \App\Application();
-$response   = $app->run(ServerRequest::fromGlobals());
+
+$response   = $app->run(\GuzzleHttp\Psr7\ServerRequest::fromGlobals());
+
 \Http\Response\send($response);

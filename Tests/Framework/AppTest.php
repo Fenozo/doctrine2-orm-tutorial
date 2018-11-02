@@ -8,7 +8,7 @@ use GuzzleHttp\Psr7\ServerRequest;
 class AppTest extends  TestCase
 {
     public function testRedirectTrailingSlash() {
-        $app        = new \App\Application();
+        $app        = new \Framework\App();
         $request    = new ServerRequest('GET','/demoSlash/');
         $response   = $app->run($request);
 
@@ -18,7 +18,7 @@ class AppTest extends  TestCase
     }
 
     public function testBlog() {
-        $app        = new \App\Application();
+        $app        = new \Framework\App();
         $request    = new ServerRequest('GET', '/blog');
         $response   = $app->run($request);
         
@@ -27,7 +27,7 @@ class AppTest extends  TestCase
     }
 
     public function testEuror404() {
-        $app        = new \App\Application();
+        $app        = new \Framework\App();
         $request    = new ServerRequest('GET', '/dfgdfg');
         $response   = $app->run($request);
         
