@@ -34,7 +34,6 @@ class Router
      */
     public function get(string $path, callable $callable, ?string $name) {
         $this->router->addRoute(new ZendRoute($path, new MiddlewareApp($callable), ['GET'],$name));
-
     }
     /**
      * @param ServerRequestInterface $request
@@ -52,6 +51,10 @@ class Router
             );
         }
         return null;
+    }
+
+    public function generateUri(string $name,array $params): ?string {
+        return $this->router->generateUri($name, $params);
     }
 
 

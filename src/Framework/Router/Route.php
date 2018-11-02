@@ -35,7 +35,7 @@ class Route {
      * Retourne les liste de paramètre
      * @return string[];
      */
-    public function getParameters(): array {
+    public function getParams(): array {
         return $this->parameters;
     }
 
