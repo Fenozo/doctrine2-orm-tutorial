@@ -8,10 +8,8 @@ use Zend\Expressive\Router\Route as ZendRoute;
 use Framework\Router\Route;
 use Framework\Router\MiddlewareApp;
 
-
-
 /**
- * 
+ *
  */
 class Router
 {
@@ -24,7 +22,6 @@ class Router
     public function __construct()
     {
         $this->router = new FastRouteRouter();
-        
     }
 
     /**
@@ -32,18 +29,19 @@ class Router
      * @param string $callcable
      * @param string $name
      */
-    public function get(string $path, callable $callable, ?string $name) {
-        $this->router->addRoute(new ZendRoute($path, new MiddlewareApp($callable), ['GET'],$name));
+    public function get(string $path, callable $callable, ?string $name)
+    {
+        $this->router->addRoute(new ZendRoute($path, new MiddlewareApp($callable), ['GET'], $name));
     }
     /**
      * @param ServerRequestInterface $request
      * @return Route|null
      */
-    public function match(ServerRequestInterface $request) : ?Route {
+    public function match(ServerRequestInterface $request) : ?Route
+    {
         
         $result = $this->router->match($request);
         if ($result->isSuccess()) {
-
             return new Route(
                 $result->getMatchedRouteName(),
                 $result->getMatchedRoute()->getMiddleware()->getCallback(),
@@ -53,9 +51,8 @@ class Router
         return null;
     }
 
-    public function generateUri(string $name,array $params): ?string {
+    public function generateUri(string $name, array $params): ?string
+    {
         return $this->router->generateUri($name, $params);
     }
-
-
 }

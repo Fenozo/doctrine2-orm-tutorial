@@ -7,6 +7,7 @@ use Framework\Router;
 use GuzzleHttp\Psr7\ServerRequest;
 use PHPUnit\Framework\TestCase;
 use Framework\ActionTestClass;
+use Framework\App;
 
 
 class RouterTest extends TestCase
@@ -19,9 +20,9 @@ class RouterTest extends TestCase
     }
 
     public function testGetMethod () {
-    
+        $app = new App();
         $request = new ServerRequest('GET','/blog');
-
+        $app->run($request);
         $this->router->get('/blog', function () { return 'Hello'; }, 'blog');
         $route = $this->router->match($request);
         $this->assertEquals('blog', $route->getName());
@@ -31,7 +32,9 @@ class RouterTest extends TestCase
     }
     
     public function testGetMethodIfURLDoesNotExist () {
+        $app = new App();
         $request = new ServerRequest('GET','/blog');
+        $app->run($request);
         $this->router->get('/bloggaze', function (){ return "hello"; }, 'blog');
         $route = $this->router->match($request);
         $this->assertEquals(null, $route );

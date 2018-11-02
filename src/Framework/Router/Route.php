@@ -5,7 +5,8 @@ namespace Framework\Router;
  * Class Route
  * Represent a matched route
  */
-class Route {
+class Route
+{
     private $name;
     private $callable;
     private $parameters;
@@ -21,23 +22,24 @@ class Route {
     /**
      * @return string
      */
-    public function getName(): string {
+    public function getName(): string
+    {
         return $this->name;
     }
     /**
-     * 
+     *
      * @return callable
      */
-    public function getCallback(): callable {
+    public function getCallback(): callable
+    {
         return $this->callable;
     }
     /**
      * Retourne les liste de paramètre
      * @return string[];
      */
-    public function getParams(): array {
+    public function getParams(): array
+    {
         return $this->parameters;
     }
-
-
 }

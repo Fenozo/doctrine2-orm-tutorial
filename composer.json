@@ -14,7 +14,8 @@
         "psr-4": {
             "Framework\\" : "src/Framework/",
             "App\\": "src/",
-            "Core\\" : "core/"
+            "Core\\" : "core/",
+            "Tests\\" : "Tests/"
         }
     },
     "require-dev": {
