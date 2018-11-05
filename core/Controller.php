@@ -20,6 +20,7 @@ class Controller
     protected function views($view, $valiable = null) {
         
         extract($valiable);
+        
         $file = $this->view_path. str_replace('.', '/', $view) . '.php';
 
         if (file_exists($file)) {
