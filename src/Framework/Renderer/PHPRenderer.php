@@ -1,12 +1,19 @@
 <?php
-namespace Framework;
+namespace Framework\Renderer;
 
-class Renderer
+class PHPRenderer implements RendererInterface
 {
     const DEFAULT_NAMESPACE = '__MAIM';
     private $dirname    = '';
 
     private $paths      = [];
+
+    public function __construct($defaultPath = null)
+    {
+        if (!is_null($defaultPath)) {
+            $this->addPath($defaultPath);
+        }
+    }
 
     /**
      *  variable global accessible globalement par les views

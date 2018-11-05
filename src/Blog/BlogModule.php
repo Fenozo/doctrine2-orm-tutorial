@@ -7,14 +7,14 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 // use GuzzleHttp\Psr7\ServerRequest as Request;
 
 use Zend\Stdlib\ResponseInterface as Response;
-use Framework\Renderer;
+use Framework\Renderer\RendererInterface;
 
 class BlogModule
 {
     private $renderer;
 
 
-    public function __construct(Router $router, Renderer $renderer)
+    public function __construct(Router $router, RendererInterface $renderer)
     {
         $this->renderer = $renderer;
         $this->renderer->addPath('blog', __DIR__.'/views');
