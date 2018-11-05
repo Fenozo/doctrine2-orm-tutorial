@@ -12,7 +12,7 @@ class Route
     private $parameters;
 
 
-    public function __construct(string $name, callable $callable, array $parameters)
+    public function __construct(string $name, $callable, array $parameters)
     {
         $this->name     = $name;
         $this->callable = $callable;
@@ -30,7 +30,7 @@ class Route
      *
      * @return callable
      */
-    public function getCallback(): callable
+    public function getCallback()
     {
         return $this->callable;
     }

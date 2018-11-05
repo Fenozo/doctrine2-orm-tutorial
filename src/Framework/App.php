@@ -6,6 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Framework\Router;
+use Psr\Container\ContainerInterface;
 
 class App
 {
@@ -16,26 +17,24 @@ class App
     protected $modules;
 
     /**
-     * Router
-     * @var Router
+     * Container
+     * 
+     * @var ContainerInterface
      */
-    private $router;
+    private $container;
 
     /**
      * Application constructor
      *
+     * @param ContainerInterface $container
      * @param string[] $modules La liste des modules à chargé.
      */
-    public function __construct(array $modules = [], array $dependancies = [])
+    public function __construct(ContainerInterface $container, array $modules = [])
     {
-        $this->router = new Router();
-
-        if (array_key_exists('renderer', $dependancies)) {
-            $dependancies['renderer']->addGlobal('router', $this->router);
-        }
+        $this->container = $container;
         if (!empty($modules)) {
             foreach ($modules as $module) {
-                $this->modules[] = new $module($this->router, $dependancies['renderer']);
+                $this->modules[] = $container->get($module);
             }
         }
     }
@@ -51,7 +50,9 @@ class App
                         ->withHeader('Location', substr($uri, 0, -1));
         }
 
-        $route =  $this->router->match($request);
+        $router =  $this->container->get(Router::class);
+
+        $route =  $router->match($request);
 
         if (is_null($route)) {
             return new Response(404, [], '<h1>Error 404</h1>');
@@ -62,8 +63,11 @@ class App
             return $request->withAttribute($key, $params[$key]);
         }, $request);
 
-
-        $response = call_user_func_array($route->getCallback(), [$request]);
+        $callback = $route->getCallback();
+        if (is_string($callback)) {
+            $callback = $this->container->get($callback);
+        }
+        $response = call_user_func_array($this->container->get($route->getCallback()), [$request]);
 
         if (is_string($response)) {
             return new Response(200, [], $response);
