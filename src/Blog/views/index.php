@@ -4,7 +4,7 @@
 
 
     <ul>
-        <li> <a href="<?php echo $router->generateUri('blog.show',['slug'=>'dfsdhfosdhfod-45']); ?> ">Article 1</a> </li>
+        <li> <a href="<?php echo $router->generateUri('blog.show', ['slug'=>'dfsdhfosdhfod-45']); ?> ">Article 1</a> </li>
         <li>Article</li>
         <li>Article</li>
         <li>Article</li>
